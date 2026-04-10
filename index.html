@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة تسجيل دخول الواي فاي</title>
+    <style>
+        /* 1. إعدادات الصفحة الخلفية: تدرج ألوان جذاب */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* خلفية متدرجة حديثة: من الأزرق الداكن للبنفسجي */
+            background: linear-gradient(135deg, #1e3a8a, #7e22ce);
+            color: #333;
+        }
+
+        /* 2. حاوية الكارت: تجعله يظهر كقطعة بارزة */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95); /* أبيض شفاف قليلاً */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* ظل ناعم لإعطاء عمق */
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* لمنع أي شيء من الخروج عن الحدود الدائرية */
+        }
+
+        /* 3. زخرفة علوية: شكل بيضاوي ملون خلف الشعار */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(126, 34, 206, 0.2); /* بنفسجي خفيف */
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* 4. الشعار (الصورة): دائرية ومحاطة بإطار */
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1; /* لتظهر فوق الزخرفة */
+            margin-bottom: 20px;
+            object-fit: cover; /* تحافظ على أبعاد الصورة */
+        }
+
+        /* 5. النصوص (العنوان والوصف) */
+        h2 {
+            color: #1e3a8a; /* أزرق داكن */
+            margin-bottom: 10px;
+            font-size: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        p.description {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 6. خانة النص (Input): عصرية وبسيطة */
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease; /* أنيميشن ناعم عند التركيز */
+            box-sizing: border-box; /* تحسب البادينج داخل العرض الإجمالي */
+        }
+
+        /* تأثير عند الضغط على الخانة (Focus) */
+        input[type="text"]:focus {
+            border-color: #7e22ce; /* يتغير لون الإطار للبنفسجي */
+            box-shadow: 0 0 10px rgba(126, 34, 206, 0.2);
+            outline: none; /* إزالة الإطار الافتراضي الممل */
+        }
+
+        /* 7. الزر: جذاب، متدرج الألوان، وله تأثير عند الماوس */
+        button {
+            width: 100%;
+            padding: 15px;
+            /* زر متدرج الألوان: من البنفسجي للأزرق */
+            background: linear-gradient(90deg, #7e22ce, #1e3a8a);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(126, 34, 206, 0.4);
+        }
+
+        /* تأثير عند تمرير الماوس فوق الزر (Hover) */
+        button:hover {
+            transform: translateY(-2px); /* يرتفع قليلاً للأعلى */
+            box-shadow: 0 6px 20px rgba(126, 34, 206, 0.6);
+        }
+
+        /* تأثير عند الضغط على الزر (Active) */
+        button:active {
+            transform: translateY(1px); /* ينخفض قليلاً */
+        }
+
+        /* 8. تذييل الصفحة (Footer): معلومات الدعم */
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .footer span {
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="my-photo.png" alt="شعار الشبكة" class="logo">
+
+     <h2>المازن نت </h2>
+        <p class="description">مرحباً بك! أدخل كود الشحن للاتصال بالإنترنت فائقة السرعة.</p>
+        
+        <form action="javascript:void(0);" method="post">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="مثال: A1B2C3D4" required>
+            </div>
+            <button type="submit">تفعيل الاتصال</button>
+        </form>
+
+        <div class="footer">
+            <p>تواجه مشكلة؟ اتصل بالدعم الفني:967772313760</span></p>
+            <p style="font-size: 12px; margin-top: 5px;">شبكة مازن - جميع الحقوق محفوظة ©</p>
+        </div>
+    </div>
+
+</body>
+</html>
